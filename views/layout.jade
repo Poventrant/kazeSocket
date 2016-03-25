@@ -2,6 +2,10 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
+    link(rel='stylesheet', href='angular-bootstrap/bootstrap.min.css')
+  body(ng-app="mainApp")
     block content
+    script(src='angular/angular.js')
+    script(src="angular-ui-router/release/angular-ui-router.js")
+    script(src="angular-bootstrap/ui-bootstrap.min.js")
+    script(src="javascripts/conf/route.js")

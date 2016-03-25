@@ -10,8 +10,6 @@ var session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 var db = require('./db.js');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
 
 var app = express();
 // app.use(db());
@@ -37,9 +35,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'bower_components')));
 
+//路由--------------------------------------------
+var routes = require('./routes/index');
 app.use('/', routes);
-app.use('/users', users);
 
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
